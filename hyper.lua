@@ -1,31 +1,34 @@
-local This = {}
-
 -----------------------------------------------------------------------------------
 -- File: hyper.lua
--- Author: J.H. Kuperus
--- Source: https://github.com/jhkuperus/dotfiles/blob/master/hammerspoon/hyper.lua
--- "License": Feel free to use this file any way you like. Issues or improvements
---            are welcome on the GitHub repository. No warranties whatsoever.
+-- Author: Joaquín Cuitiño
+-- Adapted from: https://github.com/jhkuperus/dotfiles/blob/master/hammerspoon/hyper.lua
+-- License: MIT
 -----------------------------------------------------------------------------------
 
 -- To use Hyper in your init.lua script, import it and adapt this example to
 -- your needs:
 -- 
--- local hyper = require('hyper')
--- hyper.install('F18') 
--- hyper.bindkey('r', hs.reload)
+-- local hyper = require("hyper")
+-- hyper.install("F18") 
+-- hyper.bindkey("r", hs.reload)
 --
 -- The above three lines initialize Hyper to respond to F18 key-events and binds
--- Hyper+r to Hammerspoon Reload (easy way to refresh Hammerspoon's config)
+-- Hyper+r to Hammerspoon Reload (easy way to refresh Hammerspoon"s config)
 
 -- Hyper mode needs to be bound to a key. Here we are binding
--- it to F17, because this is yet another key that's unused.
+-- it to F17, because this is yet another key that"s unused.
 -- Why not F18? We will use key-events from F18 to turn hyper
 -- mode on and off. Using F17 as the modal and source of key
 -- events, will result in a very jittery Hyper mode.
+--
+-- If the hyper key is pressed but not triggered (no shortcut is executed) 
+-- then an "ESCAPE" keypress is emitted. This was added so we can replace the
+-- Caps Lock key for Escape in touchbar MacBooks.
 
-This.hyperMode = hs.hotkey.modal.new({}, 'F17')
-theHotkey = nil
+
+local This = {}
+
+This.hyperMode = hs.hotkey.modal.new({}, "F17")
 
 -- Enter Hyper Mode when F18 (Hyper) is pressed
 function enterHyperMode()
@@ -35,39 +38,46 @@ end
 
 -- Leave Hyper Mode when F18 (Hyper) is pressed
 function exitHyperMode()
-   This.hyperMode:exit()
-   if not This.hyperMode.triggered then
-    hs.hid.capslock.set(not hs.hid.capslock.get())
+  This.hyperMode:exit()
+  if not This.hyperMode.triggered then
+    hs.eventtap.keyStroke({}, "ESCAPE")
   end
 end
 
--- Utility to bind handler to Hyper+key
+-- Binds handler function to Hyper+[modifiers]+key
 function This.bind(mods, key, handler)
   superHandler = function() 
-    hs.alert("triggered super handler");
+    hs.alert("triggered super handler")
     This.hyperMode.triggered = true
     handler()
   end
   This.hyperMode:bind(mods, key, superHandler)
 end
 
+-- Binds handler function to Hyper+key
 function This.bindKey(key, handler)
-    This.bind({}, key, handler)
+  This.bind({}, key, handler)
 end
 
--- Utility to bind handler to Hyper+Shift+key
+-- Binds handler function to Hyper+Shift+key
 function This.bindShiftKey(key, handler)
-   This.bind({'shift'}, key, handler)
+  This.bind({"shift"}, key, handler)
 end
 
--- Utility to bind handler to Hyper+Command+Shift+key
+-- Binds handler function to Hyper+Command+Shift+key
 function This.bindCommandShiftKey(key, handler)
-  This.bind({'command', 'shift'}, key, handler)
+  This.bind({"command", "shift"}, key, handler)
 end
 
--- Utility to bind handler to Hyper+modifiers+key
-function This.bindKeyWithModifiers(key, mods, handler)
-   This.bind(mods, key, handler)
+function This.remap(initialMods, initialKey, mods, key) 
+  handler = function() 
+    hs.eventtap.keyStroke(mods, key, 1000) 
+  end
+  This.bind(initialMods, initialKey, handler)
+end
+
+function This.remapKey(initialKey, key) 
+  This.remap({}, initialKey, {}, key)
 end
 
 -- Binds the enter/exit functions of the Hyper modal to all combinations of modifiers
@@ -88,17 +98,6 @@ function This.install(hotKey)
   hs.hotkey.bind({"alt", "cmd", "shift"}, hotKey, enterHyperMode, exitHyperMode)
   hs.hotkey.bind({"alt", "cmd", "ctrl"}, hotKey, enterHyperMode, exitHyperMode)
   hs.hotkey.bind({"alt", "cmd", "shift", "ctrl"}, hotKey, enterHyperMode, exitHyperMode)
-end
-
-function This.remap(initialMods, initialKey, mods, key) 
-  handler = function() 
-    hs.eventtap.keyStroke(mods, key, 1000) 
-  end
-  This.bind(initialMods, initialKey, handler)
-end
-
-function This.remapKey(initialKey, key) 
-   This.remap({}, initialKey, {}, key)
 end
 
 return This
