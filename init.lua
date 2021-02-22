@@ -12,7 +12,7 @@ local doubleShift = require("double-shift")
 hyper.install("F18")
 
 hyper.bindKey("r", hs.reload)
-hyper.bindKey("return",  hs.caffeinate.systemSleep)
+hyper.bindKey("`",  hs.caffeinate.systemSleep)
 hyper.remapKey("h", "left")
 hyper.remapKey("j", "down")
 hyper.remapKey("k", "up")
@@ -21,6 +21,20 @@ hyper.remapKey("delete", "forwarddelete")
 hyper.remap({}, "s", {"control", "shift", "cmd"}, "4") -- Screenshot area to clipboard
 hyper.remap({"shift"}, "s", {"shift", "cmd"}, "4") -- Screenshot area to desktop
 hyper.remap({"option"}, "s", {"shift", "cmd"}, "5") -- Screenshot/recording tool
+
+-- Arrange windows for Chill configuration (dual display).
+function chill()
+  apps = {
+    ["Code"] = { screen = 1, space = 1, position = grid.max },
+
+    ["WhatsApp"] = { screen = 2, space = 1, position = grid.bottomLeft },
+    ["Spotify"] = { screen = 2, space = 1, position = grid.topLeft },
+    
+    ["Safari"] = { screen = 2, space = 1, position = grid.right },
+  }
+  windowManager.arrange(apps)
+end
+hyper.bindKey("c", chill)
 
 -- Arrange windows for Desktop configuration (dual display).
 function desktop()

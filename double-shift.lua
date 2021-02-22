@@ -16,7 +16,7 @@ local events    = eventtap.event.types
 local module    = {}
 
 -- What is the maximum number of seconds over which the double-press will be considered a double press
-module.timeFrame = 1
+module.timeFrame = 0.3
 
 -- Change what this function does to change the behavior under double shift (can be overridden when including this module)
 module.action = function()
