@@ -49,7 +49,7 @@ function desktop()
     ["Spotify"] = { screen = 2, space = 2, position = grid.bottomRight },
     ["GitKraken"] = { screen = 2, space = 2, position = grid.bottomLeft },
     
-    ["Safari"] = { screen = 2, space = 1, position = grid.bottomRight },
+    ["Safari"] = { screen = 2, space = 1, position = grid.right },
     ["iTerm2"] = { screen = 2, space = 1, position = grid.topLeft },
     ["Firefox"] = { screen = 2, space = 1, position = grid.right },
     ["Google Chrome"] = { screen = 2, space = 1, position = grid.bottomLeft },
