@@ -39,12 +39,14 @@ hyper.bindKey("c", chill)
 -- Arrange windows for Desktop configuration (dual display).
 function desktop()
   apps = {
-    ["Trello"] = { screen = 1, space = 3, position = grid.max },
-    ["Toggl Track"] = { screen = 1, space = 2, position = grid.one_6 },
+    ["Trello"] = { screen = 1, space = 4, position = grid.five_1 },
+    ["Toggl Track"] = { screen = 1, space = 4, position = grid.one_6 },
     ["Code"] = { screen = 1, space = 1, position = grid.max },
+    ["WebStorm"] = { screen = 1, space = 2, position = grid.max },
+    ["PhpStorm"] = { screen = 1, space = 3, position = grid.max },
 
-    ["WhatsApp"] = { screen = 2, space = 2, position = grid.topLeft },
     ["Messages"] = { screen = 2, space = 2, position = grid.topLeft },
+    ["WhatsApp"] = { screen = 2, space = 2, position = grid.topLeft },
     ["Slack"] = { screen = 2, space = 2, position = grid.topRight },
     ["Spotify"] = { screen = 2, space = 2, position = grid.bottomRight },
     ["GitKraken"] = { screen = 2, space = 2, position = grid.bottomLeft },
@@ -53,7 +55,7 @@ function desktop()
     ["iTerm2"] = { screen = 2, space = 1, position = grid.topLeft },
     ["Firefox"] = { screen = 2, space = 1, position = grid.right },
     ["Google Chrome"] = { screen = 2, space = 1, position = grid.bottomLeft },
-    ["Postman"] = { screen = 2, space = 1, position = grid.topRight }
+    ["Postman"] = { screen = 2, space = 1, position = grid.bottomLeft }
   }
   windowManager.arrange(apps)
 end

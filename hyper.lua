@@ -47,8 +47,9 @@ end
 -- Binds handler function to Hyper+[modifiers]+key
 function This.bind(mods, key, handler)
   superHandler = function() 
-    hs.alert("triggered super handler")
     This.hyperMode.triggered = true
+    exitHyperMode()
+    hs.alert("hyper")
     handler()
   end
   This.hyperMode:bind(mods, key, superHandler)

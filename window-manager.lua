@@ -46,6 +46,7 @@ function This.arrange(apps)
   logger.v(dump(filter:getWindows()))
 
   for appName,app in pairs(apps) do
+      -- hs.application.launchOrFocus(appName)
       filter:allowApp(appName)
   end
 
