@@ -39,27 +39,42 @@ hyper.bindKey("c", chill)
 -- Arrange windows for Desktop configuration (dual display).
 function desktop()
   apps = {
-    ["Trello"] = { screen = 1, space = 4, position = grid.five_1 },
-    ["Toggl Track"] = { screen = 1, space = 4, position = grid.one_6 },
     ["Code"] = { screen = 1, space = 1, position = grid.max },
     ["WebStorm"] = { screen = 1, space = 2, position = grid.max },
     ["PhpStorm"] = { screen = 1, space = 3, position = grid.max },
+    ["Trello"] = { screen = 1, space = 4, position = grid.five_1 },
+    ["Toggl Track"] = { screen = 1, space = 4, position = grid.one_6 },
+
+    ["Safari"] = { screen = 2, space = 1, position = grid.right },
+    ["iTerm2"] = { screen = 2, space = 1, position = grid.topLeft },
+    ["Firefox"] = { screen = 2, space = 1, position = grid.right },
+    ["Google Chrome"] = { screen = 2, space = 1, position = grid.bottomLeft },
+    ["Postman"] = { screen = 2, space = 1, position = grid.bottomLeft },
 
     ["Messages"] = { screen = 2, space = 2, position = grid.topLeft },
     ["WhatsApp"] = { screen = 2, space = 2, position = grid.topLeft },
     ["Slack"] = { screen = 2, space = 2, position = grid.topRight },
     ["Spotify"] = { screen = 2, space = 2, position = grid.bottomRight },
-    ["GitKraken"] = { screen = 2, space = 2, position = grid.bottomLeft },
-    
-    ["Safari"] = { screen = 2, space = 1, position = grid.right },
-    ["iTerm2"] = { screen = 2, space = 1, position = grid.topLeft },
-    ["Firefox"] = { screen = 2, space = 1, position = grid.right },
-    ["Google Chrome"] = { screen = 2, space = 1, position = grid.bottomLeft },
-    ["Postman"] = { screen = 2, space = 1, position = grid.bottomLeft }
+    ["GitKraken"] = { screen = 2, space = 2, position = grid.bottomLeft }
   }
   windowManager.arrange(apps)
 end
 hyper.bindKey("d", desktop)
+
+function launchDesktop()
+  hs.application.launchOrFocus("WebStorm")
+  hs.application.launchOrFocus("PhpStorm")
+  hs.application.launchOrFocus("Code")
+  hs.application.launchOrFocus("Slack")
+  hs.application.launchOrFocus("WhatsApp")
+  hs.application.launchOrFocus("GitKraken")
+  hs.application.launchOrFocus("Toggl Track")
+  hs.application.launchOrFocus("Google Chrome")
+  hs.application.launchOrFocus("iTerm2")
+  hs.application.launchOrFocus("Spotify")
+  hs.application.launchOrFocus("Trello")
+end
+hyper.bindKey("l", launchDesktop)
 
 
 -- Arrange windows for Game Dev configuration (dual display).
