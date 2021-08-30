@@ -41,9 +41,9 @@ function desktop()
   apps = {
     ["Code"] = { screen = 1, space = 1, position = grid.max },
     ["WebStorm"] = { screen = 1, space = 2, position = grid.max },
-    ["PhpStorm"] = { screen = 1, space = 3, position = grid.max },
-    ["Trello"] = { screen = 1, space = 4, position = grid.five_1 },
-    ["Toggl Track"] = { screen = 1, space = 4, position = grid.one_6 },
+    ["PhpStorm"] = { screen = 1, space = 2, position = grid.max },
+    ["Trello"] = { screen = 1, space = 3, position = grid.five_1 },
+    ["Toggl Track"] = { screen = 1, space = 3, position = grid.one_6 },
 
     ["Safari"] = { screen = 2, space = 1, position = grid.right },
     ["iTerm2"] = { screen = 2, space = 1, position = grid.topLeft },
@@ -62,7 +62,6 @@ end
 hyper.bindKey("d", desktop)
 
 function launchDesktop()
-  hs.application.launchOrFocus("WebStorm")
   hs.application.launchOrFocus("PhpStorm")
   hs.application.launchOrFocus("Code")
   hs.application.launchOrFocus("Slack")
