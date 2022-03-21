@@ -55,7 +55,9 @@ function desktop()
     ["WhatsApp"] = { screen = 2, space = 2, position = grid.topLeft },
     ["Slack"] = { screen = 2, space = 2, position = grid.topRight },
     ["Spotify"] = { screen = 2, space = 2, position = grid.bottomRight },
-    ["GitKraken"] = { screen = 2, space = 2, position = grid.bottomLeft }
+    ["YT Music"] = { screen = 2, space = 2, position = grid.bottomRight },
+    ["GitKraken"] = { screen = 2, space = 2, position = grid.bottomLeft },
+    ["Sublime Merge"] = { screen = 2, space = 2, position = grid.bottomLeft }
   }
   windowManager.arrange(apps)
 end
@@ -67,11 +69,11 @@ function launchDesktop()
   hs.application.launchOrFocus("Slack")
   hs.application.launchOrFocus("WhatsApp")
   hs.application.launchOrFocus("GitKraken")
+  hs.application.launchOrFocus("Sublime Merge")
   hs.application.launchOrFocus("Toggl Track")
   hs.application.launchOrFocus("Google Chrome")
   hs.application.launchOrFocus("iTerm2")
   hs.application.launchOrFocus("Spotify")
-  hs.application.launchOrFocus("Trello")
 end
 hyper.bindKey("l", launchDesktop)
 
@@ -83,6 +85,7 @@ function gameDev()
     ["WhatsApp"] = { screen = 2, space = 2, position = grid.topLeft },
     ["Spotify"] = { screen = 2, space = 2, position = grid.bottomRight },
     ["GitKraken"] = { screen = 2, space = 2, position = grid.bottomLeft },
+    ["Sublime Merge"] = { screen = 2, space = 2, position = grid.bottomLeft },
 
     ["Code"] = { screen = 1, space = 1, position = grid.max },
     ["Rider"] = { screen = 1, space = 1, position = grid.max },
@@ -108,6 +111,7 @@ function mobile()
     ["Postman"] = { screen = 1, space = 3, position = grid.max },
 
     ["GitKraken"] = { screen = 1, space = 4, position = grid.four_1 },
+    ["Sublime Merge"] = { screen = 1, space = 4, position = grid.four_1 },
     ["iTerm2"] = { screen = 1, space = 4, position = grid.two_5 },
     ["Toggl Track"] = { screen = 1, space = 4, position = grid.one_6 },
 
