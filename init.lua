@@ -7,7 +7,7 @@
 local grid = require("grid")
 local hyper = require("hyper")
 local windowManager = require("window-manager")
-local doubleShift = require("double-shift")
+-- local doubleShift = require("double-shift")
 
 hyper.install("F18")
 
@@ -39,13 +39,11 @@ hyper.bindKey("c", chill)
 -- Arrange windows for Desktop configuration (dual display).
 function desktop()
   apps = {
-    ["Code"] = { screen = 1, space = 1, position = grid.max },
     ["WebStorm"] = { screen = 1, space = 2, position = grid.max },
     ["PhpStorm"] = { screen = 1, space = 2, position = grid.max },
     ["Trello"] = { screen = 1, space = 3, position = grid.five_1 },
     ["Toggl Track"] = { screen = 1, space = 3, position = grid.one_6 },
 
-    ["Safari"] = { screen = 2, space = 1, position = grid.right },
     ["iTerm2"] = { screen = 2, space = 1, position = grid.topLeft },
     ["Firefox"] = { screen = 2, space = 1, position = grid.right },
     ["Google Chrome"] = { screen = 2, space = 1, position = grid.bottomLeft },
@@ -57,19 +55,21 @@ function desktop()
     ["Spotify"] = { screen = 2, space = 2, position = grid.bottomRight },
     ["YT Music"] = { screen = 2, space = 2, position = grid.bottomRight },
     ["GitKraken"] = { screen = 2, space = 2, position = grid.bottomLeft },
-    ["Sublime Merge"] = { screen = 2, space = 2, position = grid.bottomLeft }
+    ["Fastmate"] = { screen = 2, space = 2, position = grid.bottomLeft },
+    ["Sublime Merge"] = { screen = 2, space = 2, position = grid.bottomLeft },
+    
+    ["Safari"] = { screen = 2, space = 1, position = grid.right },
+    ["Code"] = { screen = 1, space = 2, position = grid.max }
   }
   windowManager.arrange(apps)
 end
 hyper.bindKey("d", desktop)
 
 function launchDesktop()
-  hs.application.launchOrFocus("PhpStorm")
+  hs.application.launchOrFocus("Fastmate")
   hs.application.launchOrFocus("Code")
   hs.application.launchOrFocus("Slack")
   hs.application.launchOrFocus("WhatsApp")
-  hs.application.launchOrFocus("GitKraken")
-  hs.application.launchOrFocus("Sublime Merge")
   hs.application.launchOrFocus("Toggl Track")
   hs.application.launchOrFocus("Google Chrome")
   hs.application.launchOrFocus("iTerm2")
@@ -84,14 +84,16 @@ function gameDev()
     ["Discord"] = { screen = 2, space = 2, position = grid.topRight },
     ["WhatsApp"] = { screen = 2, space = 2, position = grid.topLeft },
     ["Spotify"] = { screen = 2, space = 2, position = grid.bottomRight },
+    ["Fastmate"] = { screen = 2, space = 2, position = grid.bottomLeft },
     ["GitKraken"] = { screen = 2, space = 2, position = grid.bottomLeft },
     ["Sublime Merge"] = { screen = 2, space = 2, position = grid.bottomLeft },
 
+    ["Firefox"] = { screen = 1, space = 2, position = grid.max },
+
+    ["Unity"] = { screen = 2, space = 1, position = grid.max },
     ["Code"] = { screen = 1, space = 1, position = grid.max },
     ["Rider"] = { screen = 1, space = 1, position = grid.max },
     ["Safari"] = { screen = 1, space = 2, position = grid.max },
-    ["Firefox"] = { screen = 1, space = 2, position = grid.max },
-    ["Unity"] = { screen = 2, space = 1, position = grid.max }
   }
   windowManager.arrange(apps)
 end
@@ -115,9 +117,11 @@ function mobile()
     ["iTerm2"] = { screen = 1, space = 4, position = grid.two_5 },
     ["Toggl Track"] = { screen = 1, space = 4, position = grid.one_6 },
 
+    ["Firefox"] = { screen = 1, space = 1, position = grid.max },
+    ["Fastmate"] = { screen = 1, space = 1, position = grid.right },
+
     ["Code"] = { screen = 1, space = 2, position = grid.max },
-    ["Safari"] = { screen = 1, space = 1, position = grid.max },
-    ["Firefox"] = { screen = 1, space = 1, position = grid.max }
+    ["Safari"] = { screen = 1, space = 1, position = grid.max }
   }
   windowManager.arrange(apps)
 end

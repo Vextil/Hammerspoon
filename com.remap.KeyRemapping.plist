@@ -1,6 +1,6 @@
 <!--
 
-  THIS REMAPS CAPS LOCK TO F18.
+  THIS REMAPS FN TO F18.
 
   Put this file in ~/Library/LaunchAgents/com.example.KeyRemapping.plist to
   automatically remap your keys when macOS starts.
@@ -23,7 +23,7 @@
         <string>--set</string>
         <string>{"UserKeyMapping":[
           {
-            "HIDKeyboardModifierMappingSrc": 0x700000039,
+            "HIDKeyboardModifierMappingSrc": 0xFF00000003,
             "HIDKeyboardModifierMappingDst": 0x70000006D
           }
         ]}</string>

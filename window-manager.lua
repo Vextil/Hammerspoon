@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------------------
 
 local grid = require("grid")
-local spaces = require("hs.spaces")
+local spaces = hs.spaces
 local logger = hs.logger.new("windowManager", "verbose")
 
 hs.application.enableSpotlightForNameSearches(true)
@@ -15,23 +15,23 @@ local This = {}
 function This.positionApp(appTitle, screen, space, position)
   -- spaces.changeToSpace(space, false)
   -- This.focusScreen(screen)
-  logger.v("Positioning " .. appTitle)
+  -- logger.v("Positioning " .. appTitle)
   if (hs.application.get(appTitle) == nil) then
-    logger.e("Application " .. appTitle .. " not found")
+    -- logger.e("Application " .. appTitle .. " not found")
     return
   end
 
   apps = {hs.application.find(appTitle)}
-  logger.v(dump(apps))
+  -- logger.v(dump(apps))
   for id,app in pairs(apps) do 
     if (app:kind() == 1) then
       app:hide()
       windows = app:allWindows()
       if (#windows == 0) then
-        logger.v("No windows found for ".. appTitle)
+        -- logger.v("No windows found for ".. appTitle)
       end
       for k,v in pairs(windows) do
-        logger.v("Positioning window "..v:id().. " of app "..appTitle)
+        -- logger.v("Positioning window "..v:id().. " of app "..appTitle)
         spaces.moveWindowToSpace(v:id(), space)
         if (position == nil) then
           position = grid.max
@@ -66,15 +66,15 @@ function This.arrange(apps)
   -- end
 
   -- Get spaces
-  logger.v("Fetching spaces and screens")
+  -- logger.v("Fetching spaces and screens")
   local allSpaces = spaces.allSpaces()
-  logger.v(dump(allSpaces))
+  -- logger.v(dump(allSpaces))
 
   -- Find primary and secondary screens UUIDs
   local primaryScreenUUID = hs.screen.primaryScreen():getUUID()
-  logger.v("Primary screen UUID: " .. primaryScreenUUID)
+  -- logger.v("Primary screen UUID: " .. primaryScreenUUID)
   local secondaryScreenUUID = hs.screen.primaryScreen():next():getUUID()
-  logger.v("Secondary screen UUID: " .. secondaryScreenUUID)
+  -- logger.v("Secondary screen UUID: " .. secondaryScreenUUID)
 
   -- Organize all windows
   for appName,app in pairs(apps) do
