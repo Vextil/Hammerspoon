@@ -55,7 +55,8 @@ function desktop()
     ["Spotify"] = { screen = 2, space = 2, position = grid.bottomRight },
     ["YT Music"] = { screen = 2, space = 2, position = grid.bottomRight },
     ["GitKraken"] = { screen = 2, space = 2, position = grid.bottomLeft },
-    ["Fastmate"] = { screen = 2, space = 2, position = grid.bottomLeft },
+    ["Mail"] = { screen = 2, space = 2, position = grid.bottomLeft },
+    ["HEY"] = { screen = 2, space = 2, position = grid.bottomLeft },
     ["Sublime Merge"] = { screen = 2, space = 2, position = grid.bottomLeft },
     
     ["Safari"] = { screen = 2, space = 1, position = grid.right },
@@ -66,7 +67,7 @@ end
 hyper.bindKey("d", desktop)
 
 function launchDesktop()
-  hs.application.launchOrFocus("Fastmate")
+  hs.application.launchOrFocus("Mail")
   hs.application.launchOrFocus("Code")
   hs.application.launchOrFocus("Slack")
   hs.application.launchOrFocus("WhatsApp")
@@ -84,7 +85,8 @@ function gameDev()
     ["Discord"] = { screen = 2, space = 2, position = grid.topRight },
     ["WhatsApp"] = { screen = 2, space = 2, position = grid.topLeft },
     ["Spotify"] = { screen = 2, space = 2, position = grid.bottomRight },
-    ["Fastmate"] = { screen = 2, space = 2, position = grid.bottomLeft },
+    ["Mail"] = { screen = 2, space = 2, position = grid.bottomLeft },
+    ["HEY"] = { screen = 2, space = 2, position = grid.bottomLeft },
     ["GitKraken"] = { screen = 2, space = 2, position = grid.bottomLeft },
     ["Sublime Merge"] = { screen = 2, space = 2, position = grid.bottomLeft },
 
@@ -118,7 +120,8 @@ function mobile()
     ["Toggl Track"] = { screen = 1, space = 4, position = grid.one_6 },
 
     ["Firefox"] = { screen = 1, space = 1, position = grid.max },
-    ["Fastmate"] = { screen = 1, space = 1, position = grid.right },
+    ["Mail"] = { screen = 1, space = 1, position = grid.right },
+    ["HEY"] = { screen = 1, space = 1, position = grid.right },
 
     ["Code"] = { screen = 1, space = 2, position = grid.max },
     ["Safari"] = { screen = 1, space = 1, position = grid.max }
