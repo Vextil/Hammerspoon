@@ -40,7 +40,8 @@ end
 function exitHyperMode()
   This.hyperMode:exit()
   if not This.hyperMode.triggered then
-    hs.eventtap.keyStroke({}, "ESCAPE")
+    -- hs.eventtap.keyStroke({}, "ESCAPE")
+    hs.hid.capslock.toggle()
   end
 end
 
