@@ -49,7 +49,7 @@ end
 function This.bind(mods, key, handler)
   superHandler = function() 
     This.hyperMode.triggered = true
-    exitHyperMode()
+    -- exitHyperMode()
     hs.alert("hyper")
     handler()
   end

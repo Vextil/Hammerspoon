@@ -22,6 +22,14 @@ hyper.remap({}, "s", {"control", "shift", "cmd"}, "4") -- Screenshot area to cli
 hyper.remap({"shift"}, "s", {"shift", "cmd"}, "4") -- Screenshot area to desktop
 hyper.remap({"option"}, "s", {"shift", "cmd"}, "5") -- Screenshot/recording tool
 
+hyper.remap({}, "1", {"control"}, "1") -- Move to desktop 1
+hyper.remap({}, "2", {"control"}, "2") -- Move to desktop 2
+hyper.remap({}, "3", {"control"}, "3") -- Move to desktop 3
+hyper.remap({}, "4", {"control"}, "4") -- Move to desktop 4
+hyper.remap({}, "q", {"control"}, "5") -- Move to desktop 5
+hyper.remap({}, "w", {"control"}, "6") -- Move to desktop 6
+
+
 -- Arrange windows for Chill configuration (dual display).
 function chill()
   apps = {
@@ -66,35 +74,35 @@ function desktop()
 end
 hyper.bindKey("d", desktop)
 
-function monitor()
-  apps = {
-    ["WebStorm"] = { screen = 1, space = 1, position = grid.bottomRight },
-    ["PhpStorm"] = { screen = 1, space = 2, position = grid.bottomRight },
-    ["Trello"] = { screen = 1, space = 2, position = grid.bottomLeft },
-    ["Toggl Track"] = { screen = 1, space = 2, position = grid.bottomLeft },
+-- function monitor()
+--   apps = {
+--     ["WebStorm"] = { screen = 1, space = 1, position = grid.bottomRight },
+--     ["PhpStorm"] = { screen = 1, space = 2, position = grid.bottomRight },
+--     ["Trello"] = { screen = 1, space = 2, position = grid.bottomLeft },
+--     ["Toggl Track"] = { screen = 1, space = 2, position = grid.bottomLeft },
 
-    ["DataGrip"] = { screen = 1, space = 1, position = grid.topLeft },
-    ["iTerm2"] = { screen = 1, space = 1, position = grid.topLeft },
-    ["Firefox"] = { screen = 1, space = 1, position = grid.right },
-    ["Google Chrome"] = { screen = 1, space = 1, position = grid.bottomLeft },
-    ["Postman"] = { screen = 1, space = 1, position = grid.bottomLeft },
+--     ["DataGrip"] = { screen = 1, space = 1, position = grid.topLeft },
+--     ["iTerm2"] = { screen = 1, space = 1, position = grid.topLeft },
+--     ["Firefox"] = { screen = 1, space = 1, position = grid.right },
+--     ["Google Chrome"] = { screen = 1, space = 1, position = grid.bottomLeft },
+--     ["Postman"] = { screen = 1, space = 1, position = grid.bottomLeft },
 
-    ["Messages"] = { screen = 1, space = 2, position = grid.topLeft },
-    ["WhatsApp"] = { screen = 1, space = 2, position = grid.topLeft },
-    ["Slack"] = { screen = 1, space = 2, position = grid.topRight },
-    ["Spotify"] = { screen = 1, space = 2, position = grid.bottomRight },
-    ["YT Music"] = { screen = 1, space = 2, position = grid.bottomRight },
-    ["GitKraken"] = { screen = 1, space = 2, position = grid.bottomLeft },
-    ["Mail"] = { screen = 1, space = 2, position = grid.bottomLeft },
-    ["HEY"] = { screen = 1, space = 2, position = grid.bottomLeft },
-    ["Sublime Merge"] = { screen = 1, space = 2, position = grid.bottomLeft },
+--     ["Messages"] = { screen = 1, space = 2, position = grid.topLeft },
+--     ["WhatsApp"] = { screen = 1, space = 2, position = grid.topLeft },
+--     ["Slack"] = { screen = 1, space = 2, position = grid.topRight },
+--     ["Spotify"] = { screen = 1, space = 2, position = grid.bottomRight },
+--     ["YT Music"] = { screen = 1, space = 2, position = grid.bottomRight },
+--     ["GitKraken"] = { screen = 1, space = 2, position = grid.bottomLeft },
+--     ["Mail"] = { screen = 1, space = 2, position = grid.bottomLeft },
+--     ["HEY"] = { screen = 1, space = 2, position = grid.bottomLeft },
+--     ["Sublime Merge"] = { screen = 1, space = 2, position = grid.bottomLeft },
     
-    ["Safari"] = { screen = 1, space = 1, position = grid.topRight },
-    ["Code"] = { screen = 1, space = 1, position = grid.bottomRight }
-  }
-  windowManager.arrange(apps)
-end
-hyper.bindKey("w", monitor)
+--     ["Safari"] = { screen = 1, space = 1, position = grid.topRight },
+--     ["Code"] = { screen = 1, space = 1, position = grid.bottomRight }
+--   }
+--   windowManager.arrange(apps)
+-- end
+-- hyper.bindKey("w", monitor)
 
 function launchDesktop()
   hs.application.launchOrFocus("Mail")
