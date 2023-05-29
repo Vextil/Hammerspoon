@@ -36,9 +36,11 @@ function chill()
     ["Code"] = { screen = 1, space = 1, position = grid.max },
 
     ["WhatsApp"] = { screen = 2, space = 1, position = grid.bottomLeft },
+    ["WhatsApp Beta"] = { screen = 2, space = 1, position = grid.bottomLeft },
     ["Spotify"] = { screen = 2, space = 1, position = grid.topLeft },
     
     ["Safari"] = { screen = 2, space = 1, position = grid.right },
+    ["Arc"] = { screen = 2, space = 1, position = grid.right },
   }
   windowManager.arrange(apps)
 end
@@ -49,8 +51,8 @@ function desktop()
   apps = {
     ["WebStorm"] = { screen = 1, space = 2, position = grid.max },
     ["PhpStorm"] = { screen = 1, space = 2, position = grid.max },
-    ["Trello"] = { screen = 1, space = 3, position = grid.five_1 },
-    ["Toggl Track"] = { screen = 1, space = 3, position = grid.one_6 },
+    ["Trello"] = { screen = 1, space = 2, position = grid.five_2 },
+    ["Toggl Track"] = { screen = 1, space = 2, position = grid.one_1 },
 
     ["iTerm2"] = { screen = 2, space = 1, position = grid.topLeft },
     ["Firefox"] = { screen = 2, space = 1, position = grid.right },
@@ -59,6 +61,7 @@ function desktop()
 
     ["Messages"] = { screen = 2, space = 2, position = grid.topLeft },
     ["WhatsApp"] = { screen = 2, space = 2, position = grid.topLeft },
+    ["WhatsApp Beta"] = { screen = 2, space = 2, position = grid.topLeft },
     ["Slack"] = { screen = 2, space = 2, position = grid.topRight },
     ["Spotify"] = { screen = 2, space = 2, position = grid.bottomRight },
     ["YT Music"] = { screen = 2, space = 2, position = grid.bottomRight },
@@ -68,7 +71,8 @@ function desktop()
     ["Sublime Merge"] = { screen = 2, space = 2, position = grid.bottomLeft },
     
     ["Safari"] = { screen = 2, space = 1, position = grid.right },
-    ["Code"] = { screen = 1, space = 2, position = grid.max }
+    ["Arc"] = { screen = 2, space = 1, position = grid.right },
+    ["Code"] = { screen = 1, space = 1, position = grid.max },
   }
   windowManager.arrange(apps)
 end
@@ -110,7 +114,7 @@ function launchDesktop()
   hs.application.launchOrFocus("Slack")
   hs.application.launchOrFocus("WhatsApp")
   hs.application.launchOrFocus("Toggl Track")
-  hs.application.launchOrFocus("Google Chrome")
+  hs.application.launchOrFocus("Arc")
   hs.application.launchOrFocus("iTerm2")
   hs.application.launchOrFocus("Spotify")
 end
@@ -122,6 +126,7 @@ function gameDev()
   apps = {
     ["Discord"] = { screen = 2, space = 2, position = grid.topRight },
     ["WhatsApp"] = { screen = 2, space = 2, position = grid.topLeft },
+    ["WhatsApp Beta"] = { screen = 2, space = 2, position = grid.topLeft },
     ["Spotify"] = { screen = 2, space = 2, position = grid.bottomRight },
     ["Mail"] = { screen = 2, space = 2, position = grid.bottomLeft },
     ["HEY"] = { screen = 2, space = 2, position = grid.bottomLeft },
@@ -134,6 +139,7 @@ function gameDev()
     ["Code"] = { screen = 1, space = 1, position = grid.max },
     ["Rider"] = { screen = 1, space = 1, position = grid.max },
     ["Safari"] = { screen = 1, space = 2, position = grid.max },
+    ["Arc"] = { screen = 1, space = 2, position = grid.max },
   }
   windowManager.arrange(apps)
 end
@@ -146,6 +152,7 @@ function mobile()
 
     ["Messages"] = { screen = 1, space = 5, position = grid.left },
     ["WhatsApp"] = { screen = 1, space = 5, position = grid.left },
+    ["WhatsApp Beta"] = { screen = 1, space = 5, position = grid.left },
     ["Slack"] = { screen = 1, space = 5, position = grid.right },
     ["Spotify"] = { screen = 1, space = 5, position = grid.right },
     ["Music"] = { screen = 1, space = 5, position = grid.right },
@@ -162,7 +169,8 @@ function mobile()
     ["HEY"] = { screen = 1, space = 1, position = grid.right },
 
     ["Code"] = { screen = 1, space = 2, position = grid.max },
-    ["Safari"] = { screen = 1, space = 1, position = grid.max }
+    ["Safari"] = { screen = 1, space = 1, position = grid.max },
+    ["Arc"] = { screen = 1, space = 1, position = grid.max },
   }
   windowManager.arrange(apps)
 end
