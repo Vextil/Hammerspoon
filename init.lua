@@ -109,7 +109,7 @@ hyper.bindKey("d", desktop)
 -- hyper.bindKey("w", monitor)
 
 function launchDesktop()
-  hs.application.launchOrFocus("Mail")
+  hs.application.launchOrFocus("HEY")
   hs.application.launchOrFocus("Code")
   hs.application.launchOrFocus("Slack")
   hs.application.launchOrFocus("WhatsApp")
@@ -182,3 +182,11 @@ function F()
   app:kill9()
 end
 hyper.bindKey("f", F)
+
+
+function passwords()
+  local url = 'x-apple.systempreferences:com.apple.Passwords-Settings.extension'
+  local handler = 'com.apple.systempreferences'
+  hs.urlevent.openURLWithBundle(url, handler)
+end
+hyper.bindKey("p", passwords)

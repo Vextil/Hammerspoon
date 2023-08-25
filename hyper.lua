@@ -50,7 +50,7 @@ function This.bind(mods, key, handler)
   superHandler = function() 
     This.hyperMode.triggered = true
     -- exitHyperMode()
-    hs.alert("hyper")
+    -- hs.alert("hyper", nil, hs.screen.mainScreen(), 1)
     handler()
   end
   This.hyperMode:bind(mods, key, superHandler)
