@@ -56,6 +56,10 @@ local p = {
       x = 0, y = HALF_GRID_SIZE,
       w = 4, h = HALF_GRID_SIZE
     },
+    centerStage_bottomLeftSidecar = {
+      x = 4, y = HALF_GRID_SIZE,
+      w = 4, h = HALF_GRID_SIZE
+    },
     centerStage_topLeft = {
       x = 0, y = 0,
       w = 4, h = HALF_GRID_SIZE

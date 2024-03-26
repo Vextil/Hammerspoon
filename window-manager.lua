@@ -17,32 +17,32 @@ function This.positionApp(appTitle, screen, space, position)
   -- This.focusScreen(screen)
   -- logger.v("Positioning " .. appTitle)
   if (hs.application.get(appTitle) == nil) then
-    -- logger.e("Application " .. appTitle .. " not found")
+    logger.e("Application " .. appTitle .. " not found")
     return
   end
 
-  apps = {hs.application.find(appTitle)}
-  -- logger.v(dump(apps))
-  for id,app in pairs(apps) do 
-    if (app:kind() == 1) then
-      app:hide()
-      windows = app:allWindows()
-      if (#windows == 0) then
-        -- logger.v("No windows found for ".. appTitle)
-      end
-      for k,v in pairs(windows) do
-        -- logger.v("Positioning window "..v:id().. " of app "..appTitle)
-        spaces.moveWindowToSpace(v:id(), space)
-        if (position == nil) then
-          position = grid.max
-        end
-        hs.grid.set(v, position, screen)
-        if (v:isMinimized()) then
-            v:unminimize()
-        end
-      end
-      app:unhide()
+  app = hs.application.get(appTitle)
+  logger.v("Positioning app "..appTitle)
+  if (app ~= nil and app:kind() == 1) then
+    app:hide()
+    logger.v("Bundle ID: "..app:bundleID())
+    windows = app:allWindows()
+    if (#windows == 0) then
+      logger.v("No windows found for ".. appTitle)
     end
+    for k,v in pairs(windows) do
+      logger.v("Positioning window "..v:id().. " of app "..appTitle)
+      spaces.moveWindowToSpace(v:id(), space)
+      if (position == nil) then
+        position = grid.max
+      end
+      hs.grid.set(v, position, screen)
+      if (v:isMinimized()) then
+          logger.v("Unminimizing window "..v:id().. " of app "..appTitle)
+          v:unminimize()
+      end
+    end
+    app:unhide()
   end
 end
 
@@ -72,9 +72,9 @@ function This.arrange(apps)
 
   -- Find primary and secondary screens UUIDs
   local primaryScreenUUID = hs.screen.primaryScreen():getUUID()
-  -- logger.v("Primary screen UUID: " .. primaryScreenUUID)
+  logger.v("Primary screen UUID: " .. primaryScreenUUID)
   local secondaryScreenUUID = hs.screen.primaryScreen():next():getUUID()
-  -- logger.v("Secondary screen UUID: " .. secondaryScreenUUID)
+  logger.v("Secondary screen UUID: " .. secondaryScreenUUID)
 
   -- Organize all windows
   for appName,app in pairs(apps) do

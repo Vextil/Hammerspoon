@@ -33,14 +33,16 @@ hyper.remap({}, "w", {"control"}, "6") -- Move to desktop 6
 -- Arrange windows for Chill configuration (dual display).
 function chill()
   apps = {
-    ["Code"] = { screen = 1, space = 1, position = grid.max },
+    ["com.microsoft.VSCode"] = { screen = 1, space = 1, position = grid.max },
+    ["Rider"] = { screen = 1, space = 1, position = grid.max },
+    ["Zed"] = { screen = 1, space = 1, position = grid.max },
 
-    ["WhatsApp"] = { screen = 2, space = 1, position = grid.centerStage_topLeft },
-    ["Hey"] = { screen = 2, space = 1, position = grid.centerStage_bottomLeft },
-    ["Spotify"] = { screen = 2, space = 1, position = grid.centerStage_bottomRight },
+    ["net.whatsapp.WhatsApp"] = { screen = 2, space = 1, position = grid.centerStage_topLeft },
+    ["Mail"] = { screen = 2, space = 1, position = grid.centerStage_bottomLeft },
+    ["Calendar"] = { screen = 2, space = 2, position = grid.centerStage_bottomLeftSidecar },
+    ["com.spotify.client"] = { screen = 2, space = 1, position = grid.centerStage_bottomRight },
     
-    ["Safari"] = { screen = 2, space = 1, position = grid.centerStage },
-    ["Arc"] = { screen = 2, space = 1, position = grid.centerStage },
+    ["com.apple.Safari"] = { screen = 2, space = 1, position = grid.centerStage },
   }
   windowManager.arrange(apps)
 end
@@ -49,120 +51,66 @@ hyper.bindKey("c", chill)
 -- Arrange windows for Desktop configuration (dual display).
 function desktop()
   apps = {
-    ["WebStorm"] = { screen = 1, space = 2, position = grid.max },
-    ["PhpStorm"] = { screen = 1, space = 2, position = grid.max },
-    ["Trello"] = { screen = 1, space = 2, position = grid.five_2 },
-
-    ["iTerm2"] = { screen = 2, space = 1, position = grid.topLeft },
-    ["Firefox"] = { screen = 2, space = 1, position = grid.right },
-    ["Google Chrome"] = { screen = 2, space = 1, position = grid.bottomLeft },
-    ["Postman"] = { screen = 2, space = 1, position = grid.bottomLeft },
-
-    ["Messages"] = { screen = 2, space = 2, position = grid.topLeft },
-    ["WhatsApp"] = { screen = 2, space = 2, position = grid.centerStage_topLeft },
-    ["Slack"] = { screen = 2, space = 2, position = grid.centerStage_topRight },
-    ["Spotify"] = { screen = 2, space = 2, position = grid.centerStage_bottomRight },
-    ["YT Music"] = { screen = 2, space = 2, position = grid.centerStage_bottomRight },
+    ["com.tinyspeck.slackmacgap"] = { screen = 2, space = 2, position = grid.centerStage_topRight },
+    ["com.spotify.client"] = { screen = 2, space = 2, position = grid.centerStage_bottomRight },
     ["Mail"] = { screen = 2, space = 2, position = grid.centerStage_bottomLeft },
-    ["HEY"] = { screen = 2, space = 2, position = grid.centerStage_bottomLeft },
-    ["Sublime Merge"] = { screen = 2, space = 2, position = grid.centerStage_bottomLeft },
-    
-    ["Safari"] = { screen = 2, space = 1, position = grid.right },
-    ["Arc"] = { screen = 2, space = 1, position = grid.right },
-    ["Code"] = { screen = 1, space = 1, position = grid.max },
+    ["Calendar"] = { screen = 2, space = 2, position = grid.centerStage_bottomLeftSidecar },
+
+    ["com.apple.Safari"] = { screen = 2, space = 1, position = grid.right },
+    -- ["HookSounds - "] = { screen = 2, space = 1, position = grid.left },
+    -- ["Home - "] = { screen = 2, space = 1, position = grid.right },
+    ["com.microsoft.VSCode"] = { screen = 1, space = 1, position = grid.max },
+    ["Rider"] = { screen = 1, space = 1, position = grid.max },
+    ["Zed"] = { screen = 1, space = 1, position = grid.max },
+
+    ["net.whatsapp.WhatsApp"] = { screen = 2, space = 2, position = grid.centerStage_topLeft },
   }
   windowManager.arrange(apps)
 end
 hyper.bindKey("d", desktop)
 
--- function monitor()
---   apps = {
---     ["WebStorm"] = { screen = 1, space = 1, position = grid.bottomRight },
---     ["PhpStorm"] = { screen = 1, space = 2, position = grid.bottomRight },
---     ["Trello"] = { screen = 1, space = 2, position = grid.bottomLeft },
---     ["Toggl Track"] = { screen = 1, space = 2, position = grid.bottomLeft },
-
---     ["DataGrip"] = { screen = 1, space = 1, position = grid.topLeft },
---     ["iTerm2"] = { screen = 1, space = 1, position = grid.topLeft },
---     ["Firefox"] = { screen = 1, space = 1, position = grid.right },
---     ["Google Chrome"] = { screen = 1, space = 1, position = grid.bottomLeft },
---     ["Postman"] = { screen = 1, space = 1, position = grid.bottomLeft },
-
---     ["Messages"] = { screen = 1, space = 2, position = grid.topLeft },
---     ["WhatsApp"] = { screen = 1, space = 2, position = grid.topLeft },
---     ["Slack"] = { screen = 1, space = 2, position = grid.topRight },
---     ["Spotify"] = { screen = 1, space = 2, position = grid.bottomRight },
---     ["YT Music"] = { screen = 1, space = 2, position = grid.bottomRight },
---     ["GitKraken"] = { screen = 1, space = 2, position = grid.bottomLeft },
---     ["Mail"] = { screen = 1, space = 2, position = grid.bottomLeft },
---     ["HEY"] = { screen = 1, space = 2, position = grid.bottomLeft },
---     ["Sublime Merge"] = { screen = 1, space = 2, position = grid.bottomLeft },
-    
---     ["Safari"] = { screen = 1, space = 1, position = grid.topRight },
---     ["Code"] = { screen = 1, space = 1, position = grid.bottomRight }
---   }
---   windowManager.arrange(apps)
--- end
--- hyper.bindKey("w", monitor)
-
-function launchDesktop()
-  hs.application.launchOrFocus("HEY")
-  hs.application.launchOrFocus("Code")
-  hs.application.launchOrFocus("Slack")
-  hs.application.launchOrFocus("WhatsApp")
-  hs.application.launchOrFocus("Toggl Track")
-  hs.application.launchOrFocus("Safari")
-  hs.application.launchOrFocus("iTerm2")
-  hs.application.launchOrFocus("Spotify")
-end
-hyper.bindKey("l", launchDesktop)
-
-
 -- Arrange windows for Game Dev configuration (dual display).
 function gameDev()
   apps = {
-    ["Discord"] = { screen = 2, space = 2, position = grid.topRight },
-    ["WhatsApp"] = { screen = 2, space = 2, position = grid.topLeft },
-    ["WhatsApp Beta"] = { screen = 2, space = 2, position = grid.topLeft },
-    ["Spotify"] = { screen = 2, space = 2, position = grid.bottomRight },
-    ["Mail"] = { screen = 2, space = 2, position = grid.bottomLeft },
-    ["HEY"] = { screen = 2, space = 2, position = grid.bottomLeft },
-    ["GitKraken"] = { screen = 2, space = 2, position = grid.bottomLeft },
-    ["Sublime Merge"] = { screen = 2, space = 2, position = grid.bottomLeft },
+    ["com.tinyspeck.slackmacgap"] = { screen = 2, space = 2, position = grid.centerStage_topRight },
+    ["com.spotify.client"] = { screen = 2, space = 2, position = grid.centerStage_bottomRight },
+    ["Mail"] = { screen = 2, space = 2, position = grid.centerStage_bottomLeft },
+    ["Sublime Merge"] = { screen = 2, space = 2, position = grid.centerStage_bottomLeftSidecar },
 
-    ["Firefox"] = { screen = 1, space = 2, position = grid.max },
-
-    ["Unity"] = { screen = 2, space = 1, position = grid.max },
-    ["Code"] = { screen = 1, space = 1, position = grid.max },
+    ["com.apple.Safari"] = { screen = 2, space = 1, position = grid.right },
+    ["Unity"] = { screen = 2, space = 1, position = grid.left },
+    ["com.microsoft.VSCode"] = { screen = 1, space = 1, position = grid.max },
     ["Rider"] = { screen = 1, space = 1, position = grid.max },
-    ["Safari"] = { screen = 1, space = 2, position = grid.max },
-    ["Arc"] = { screen = 1, space = 2, position = grid.max },
+    ["Zed"] = { screen = 1, space = 1, position = grid.max },
+
+    ["net.whatsapp.WhatsApp"] = { screen = 2, space = 2, position = grid.centerStage_topLeft },
   }
   windowManager.arrange(apps)
 end
 hyper.bindKey("g", gameDev)
 
+function launchDesktop()
+  hs.application.launchOrFocus("Mail")
+  hs.application.launchOrFocus("Code")
+  hs.application.launchOrFocus("Slack")
+  hs.application.launchOrFocus("net.whatsapp.WhatsApp")
+  hs.application.launchOrFocus("Toggl Track")
+  hs.application.launchOrFocus("com.apple.Safari")
+  hs.application.launchOrFocus("com.spotify.client")
+end
+hyper.bindKey("l", launchDesktop)
+
 -- Arrange windows for on-the-go configuration (single display).
 function mobile()
   apps = {
-    ["Trello"] = { screen = 1, space = 6, position = grid.max },
+    ["net.whatsapp.WhatsApp"] = { screen = 1, space = 3, position = grid.topLeft },
+    ["com.tinyspeck.slackmacgap"] = { screen = 1, space = 3, position = grid.topRight },
+    ["com.spotify.client"] = { screen = 1, space = 3, position = grid.bottomRight },
+    ["HEY"] = { screen = 1, space = 3, position = grid.bottomLeft },
+    ["Calendar"] = { screen = 1, space = 3, position = grid.bottomRight },
 
-    ["Messages"] = { screen = 1, space = 5, position = grid.left },
-    ["WhatsApp"] = { screen = 1, space = 5, position = grid.left },
-    ["WhatsApp Beta"] = { screen = 1, space = 5, position = grid.left },
-    ["Slack"] = { screen = 1, space = 5, position = grid.right },
-    ["Spotify"] = { screen = 1, space = 5, position = grid.right },
-    ["Music"] = { screen = 1, space = 5, position = grid.right },
-
-    ["Postman"] = { screen = 1, space = 3, position = grid.max },
-
-    ["Firefox"] = { screen = 1, space = 1, position = grid.max },
-    ["Mail"] = { screen = 1, space = 1, position = grid.right },
-    ["HEY"] = { screen = 1, space = 1, position = grid.right },
-
-    ["Code"] = { screen = 1, space = 2, position = grid.max },
-    ["Safari"] = { screen = 1, space = 1, position = grid.max },
-    ["Arc"] = { screen = 1, space = 1, position = grid.max },
+    ["com.microsoft.VSCode"] = { screen = 1, space = 2, position = grid.max },
+    ["com.apple.Safari"] = { screen = 1, space = 1, position = grid.max },
   }
   windowManager.arrange(apps)
 end
