@@ -7,6 +7,7 @@
 local grid = require("grid")
 local hyper = require("hyper")
 local windowManager = require("window-manager")
+local yabai = require("yabai")
 -- local doubleShift = require("double-shift")
 
 hyper.install("F18")
@@ -22,12 +23,6 @@ hyper.remap({}, "s", {"control", "shift", "cmd"}, "4") -- Screenshot area to cli
 hyper.remap({"shift"}, "s", {"shift", "cmd"}, "4") -- Screenshot area to desktop
 hyper.remap({"option"}, "s", {"shift", "cmd"}, "5") -- Screenshot/recording tool
 
-hyper.remap({}, "1", {"control"}, "1") -- Move to desktop 1
-hyper.remap({}, "2", {"control"}, "2") -- Move to desktop 2
-hyper.remap({}, "3", {"control"}, "3") -- Move to desktop 3
-hyper.remap({}, "4", {"control"}, "4") -- Move to desktop 4
-hyper.remap({}, "q", {"control"}, "5") -- Move to desktop 5
-hyper.remap({}, "w", {"control"}, "6") -- Move to desktop 6
 
 
 -- Arrange windows for Chill configuration (dual display).
@@ -54,6 +49,7 @@ function desktop()
     ["com.tinyspeck.slackmacgap"] = { screen = 2, space = 2, position = grid.centerStage_topRight },
     ["com.spotify.client"] = { screen = 2, space = 2, position = grid.centerStage_bottomRight },
     ["Mail"] = { screen = 2, space = 2, position = grid.centerStage_bottomLeft },
+    ["Hey"] = { screen = 2, space = 2, position = grid.centerStage_bottomLeft },
     ["Calendar"] = { screen = 2, space = 2, position = grid.centerStage_bottomLeftSidecar },
 
     ["com.apple.Safari"] = { screen = 2, space = 1, position = grid.right },
@@ -130,3 +126,9 @@ function passwords()
   hs.urlevent.openURLWithBundle(url, handler)
 end
 hyper.bindKey("p", passwords)
+
+
+hyper.bindKey("1", function() yabai({"-m", "space", "--focus", "1"}) end)  --["t"]
+hyper.bindKey("2", function() yabai({"-m", "space", "--focus", "2"}) end)  --["t"]
+hyper.bindKey("q", function() yabai({"-m", "space", "--focus", "3"}) end)  --["t"]
+hyper.bindKey("w", function() yabai({"-m", "space", "--focus", "4"}) end)  --["t"]

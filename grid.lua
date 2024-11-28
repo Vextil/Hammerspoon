@@ -54,27 +54,27 @@ local p = {
     },      
     centerStage_bottomLeft = {
       x = 0, y = HALF_GRID_SIZE,
-      w = 4, h = HALF_GRID_SIZE
+      w = 6, h = HALF_GRID_SIZE
     },
     centerStage_bottomLeftSidecar = {
-      x = 4, y = HALF_GRID_SIZE,
-      w = 4, h = HALF_GRID_SIZE
+      x = 6, y = HALF_GRID_SIZE,
+      w = 6, h = HALF_GRID_SIZE
     },
     centerStage_topLeft = {
       x = 0, y = 0,
-      w = 4, h = HALF_GRID_SIZE
+      w = 6, h = HALF_GRID_SIZE
     },
     centerStage_bottomRight = {
-      x = 14, y = HALF_GRID_SIZE,
-      w = 4, h = HALF_GRID_SIZE
+      x = 12, y = HALF_GRID_SIZE,
+      w = 6, h = HALF_GRID_SIZE
     },
     centerStage_topRight = {
-      x = 14, y = 0,
-      w = 4, h = HALF_GRID_SIZE
+      x = 12, y = 0,
+      w = 6, h = HALF_GRID_SIZE
     },
     centerStage = {
-      x = 4, y = 0,
-      w = 10, h = GRID_SIZE
+      x = 6, y = 0,
+      w = 6, h = GRID_SIZE
     },
 }
 
